@@ -2,24 +2,21 @@ import React, { useMemo } from 'react';
 import { Container, Typography, Box, Card, CardContent, CardMedia, styled, Rating } from '@mui/material';
 import Slider from 'react-slick';
 
-// Importação direta das imagens
 import senaImage from '../assets/sena.png';
 import oliviaImage from '../assets/olivia.jpeg';
 import brunoImage from '../assets/bruno.jpg';
 
-// Estilo do título usando styled do MUI
 const StyledTitle = styled(Typography)(({ theme }) => ({
-  fontSize: '2.5rem', // Aumenta o tamanho da fonte
-  fontWeight: 'bold', // Torna o texto em negrito
-  textAlign: 'center', // Centraliza o texto
-  background: 'linear-gradient(90deg, #ff6e7f, #bfe9ff)', // Adiciona um gradiente de cor ao texto
-  WebkitBackgroundClip: 'text', // Faz o gradiente preencher o texto
-  WebkitTextFillColor: 'transparent', // Faz o gradiente visível apenas no texto
-  marginBottom: theme.spacing(3), // Adiciona espaçamento inferior
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)', // Adiciona sombra ao texto para profundidade
+  fontSize: '2.5rem',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  background: 'linear-gradient(90deg, #6B705C, #BCB6AB)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  marginBottom: theme.spacing(3),
+  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
 }));
 
-// Estilo do card de feedback
 const StyledCard = styled(Card)(({ theme }) => ({
   width: '100%',
   maxWidth: 400,
@@ -34,16 +31,14 @@ const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: theme.spacing(1),
 }));
 
-// Estilo da imagem
 const StyledCardMedia = styled(CardMedia)({
   width: 120,
   height: 120,
-  borderRadius: '10%', // Ajuste para bordas levemente arredondadas
+  borderRadius: '10%',
   objectFit: 'cover',
   marginBottom: 16,
 });
 
-// Dados de feedback dos alunos
 const feedbackData = [
   { 
     name: 'Matheus Sena',
@@ -65,14 +60,9 @@ const feedbackData = [
   },
 ];
 
-// Componente FeedbackCard
 const FeedbackCard: React.FC<{ student: typeof feedbackData[0] }> = ({ student }) => (
   <StyledCard>
-    <StyledCardMedia
-      component="img"
-      image={student.image}
-      alt={`Foto de ${student.name}`}
-    />
+    <StyledCardMedia image={student.image} alt={`Foto de ${student.name}`} />
     <CardContent>
       <Typography variant="h6" component="div" gutterBottom>
         {student.name}
@@ -86,7 +76,6 @@ const FeedbackCard: React.FC<{ student: typeof feedbackData[0] }> = ({ student }
 );
 
 const Feedback: React.FC = () => {
-  // Configurações do carrossel
   const settings = useMemo(() => ({
     dots: true,
     infinite: true,
@@ -102,9 +91,7 @@ const Feedback: React.FC = () => {
 
   return (
     <Container id="feedback" sx={{ paddingTop: 4, paddingBottom: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <StyledTitle variant="h4">
-        Student Feedback
-      </StyledTitle>
+      <StyledTitle variant="h4">Student Feedback</StyledTitle>
       <Box sx={{ width: '100%', maxWidth: 600 }}>
         <Slider {...settings}>
           {feedbackData.map((student, index) => (

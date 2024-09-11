@@ -1,42 +1,60 @@
-// src/components/About.tsx
 import React from 'react';
-import { Container, Grid, Typography, Box, styled } from '@mui/material';
+import { Container, Grid, Typography, styled, Box } from '@mui/material';
 import Avatar from '../assets/about.png'; // Verifique se o caminho da imagem está correto
 
 // Estilização da imagem para que fique redonda e com borda
 const StyledImg = styled('img')(({ theme }) => ({
   width: '100%',
-  maxWidth: '300px',
+  maxWidth: '400px', // Aumentei o tamanho máximo da imagem para se destacar mais
   borderRadius: '50%',
-  border: `2px solid ${theme.palette.secondary.main}`,
+  border: `3px solid ${theme.palette.secondary.main}`, // Borda com a cor secundária do tema
+  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', // Adicionando um leve sombreamento para dar destaque
 }));
 
-function About() {
+const About: React.FC = () => {
   return (
     <Container id="about" sx={{ paddingTop: 4, paddingBottom: 4 }}>
-      <Grid container spacing={4} alignItems="center">
+      <Grid container spacing={6} alignItems="center">
+
         {/* Texto à esquerda */}
         <Grid item xs={12} md={7}>
-          <Typography variant="h4" gutterBottom fontWeight="bold">
-            WHO WILL BE YOUR TEACHER?
+          <Typography
+            variant="h2"
+            gutterBottom
+            sx={{
+              fontWeight: 'bold',
+              color: '#141436', // Usando uma cor forte para o título
+              fontSize: '2.5rem',
+            }}
+          >
+            QUEM SERÁ SUA PROFESSORA?
           </Typography>
-          <Typography variant="body1" paragraph>
-            Olá! Eu sou a Jade Hamed.
+
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 600,
+              color: '#BCB6AB', // Cor em tom mais suave para subtítulo
+              fontSize: '1.8rem',
+              marginBottom: '1.5rem',
+            }}
+          >
+            Olá! Eu sou Jade Hamed.
           </Typography>
-          <Typography variant="body1" paragraph>
-            Desde pequena, sempre fui apaixonada por ensinar inglês. Crescendo no Brasil, eu adorava falar inglês verdadeiro com uma bela pronúncia.
+
+          <Typography variant="body1" paragraph sx={{ color: '#333333', fontSize: '1.1rem' }}>
+            Sou uma professora de inglês apaixonada e moro no Brasil. Desde pequena, sou fascinada pela língua inglesa 
+            e por como ela conecta pessoas ao redor do mundo. Meu objetivo é ajudar você a falar inglês com fluência e confiança!
           </Typography>
-          <Typography variant="body1" paragraph>
-            Todos os meses, muitos alunos apreciam meus vídeos no Instagram e aulas online, beneficiando-se do meu programa de Desenvolvimento de Inglês Fluente.
+
+          <Typography variant="body1" paragraph sx={{ color: '#333333', fontSize: '1.1rem' }}>
+            Ofereço aulas online personalizadas de acordo com as suas necessidades, desde o nível iniciante até o avançado,
+            focando em uma pronúncia clara, comunicação eficaz e no fortalecimento da sua confiança.
           </Typography>
-          <Typography variant="body1" paragraph>
-            Eu treino meus alunos para pronunciar inglês corretamente, oferecendo clareza e aumentando sua confiança. Começamos focando na pronúncia desde o primeiro dia!
-          </Typography>
-          <Typography variant="body1" paragraph>
-            No nosso Programa de Desenvolvimento de Inglês Fluente, ofereço uma série de exercícios práticos para ajudar com a memória muscular, para que você fale inglês fluentemente para sempre.
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Mas se você seguir as lições e aplicá-las da maneira correta, também pode ser muito divertido quanto mais você avançar!
+
+          <Typography variant="body1" paragraph sx={{ color: '#333333', fontSize: '1.1rem' }}>
+            Seja para contextos profissionais, viagens ou para aprimorar suas habilidades linguísticas, minhas aulas são interativas e pensadas
+            para ajudar você a alcançar seus objetivos de forma leve e divertida.
           </Typography>
         </Grid>
 
@@ -47,6 +65,6 @@ function About() {
       </Grid>
     </Container>
   );
-}
+};
 
 export default About;

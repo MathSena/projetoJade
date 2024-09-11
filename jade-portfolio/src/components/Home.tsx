@@ -1,12 +1,10 @@
-// src/components/Home.tsx
 import React from "react";
 import { Box, Container, Grid, Typography, Button, IconButton, styled, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import Avatar from "../assets/avatar-jade.jpg"; // Verifique se o caminho da imagem está correto
-import DownloadIcon from "@mui/icons-material/Download";
+import Avatar from "../assets/avatar-jade.jpg";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import InstagramIcon from '@mui/icons-material/Instagram';
-import MusicVideoIcon from '@mui/icons-material/MusicVideo'; // Use este ícone para TikTok
+import MusicVideoIcon from '@mui/icons-material/MusicVideo'; 
 
 // Componentes animados do Framer Motion com MUI
 const MotionTypography = motion(Typography);
@@ -21,12 +19,12 @@ const MotionImg = motion(
 
 // Estilo para o componente principal com fundo gradiente
 const StyledHome = styled("div")(({ theme }) => ({
-  background: "linear-gradient(to bottom, #B6AFA3, #f5f5f5)", // Gradiente de cor
+  background: "linear-gradient(to bottom, #ebead5, #F5F5F5)", 
   minHeight: "100vh",
   display: "flex",
-  flexDirection: "column", // Certifica-se de que os itens fiquem em coluna
-  justifyContent: "center", // Centraliza verticalmente
-  alignItems: "center", // Centraliza horizontalmente
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
   position: "relative",
   overflow: "hidden",
   padding: "0 20px",
@@ -50,26 +48,37 @@ const StyledButton = styled(Button)(({ theme }) => ({
   textTransform: 'none',
   fontWeight: 'bold',
   fontSize: '1rem',
+  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', 
   "&:hover": {
     backgroundColor: theme.palette.primary.dark,
+    boxShadow: '0px 6px 16px rgba(0, 0, 0, 0.2)',
+    transform: 'scale(1.05)', 
+    transition: 'all 0.3s ease-in-out',
   },
 }));
 
-// Estilo personalizado para as tipografias principais
+// Estilo personalizado para o título principal
 const MainTitle = styled(MotionTypography)(({ theme }) => ({
-  fontSize: '3rem', // Tamanho grande para destaque
-  fontWeight: 700, // Negrito
-  fontFamily: "'Arial', sans-serif",
-  color: '#141436', // Cor azul para contraste
+  fontSize: '3rem', 
+  fontWeight: 700,
+  fontFamily: "'Poppins', sans-serif",
+  color: theme.palette.text.primary,
+  textAlign: 'center',
   marginBottom: theme.spacing(1),
+  letterSpacing: '0.5px', // Espacamento entre as letras
+  lineHeight: '1.2', // Altura da linha para melhorar a leitura
 }));
 
+// Estilo para os subtítulos
 const Subtitle = styled(MotionTypography)(({ theme }) => ({
-  fontSize: '1.5rem', // Subtítulo de tamanho médio
-  fontWeight: 500, // Peso intermediário
-  fontFamily: "'Arial', sans-serif",
+  fontSize: '1.5rem',
+  fontWeight: 500,
+  fontFamily: "'Poppins', sans-serif",
   color: theme.palette.text.secondary,
+  textAlign: 'center',
   marginBottom: theme.spacing(1),
+  letterSpacing: '0.3px',
+  lineHeight: '1.5',
 }));
 
 const Home: React.FC = () => {
@@ -100,7 +109,6 @@ const Home: React.FC = () => {
           </Grid>
           <Grid item xs={12} md={7}>
             <MainTitle
-              textAlign="center"
               pb={2}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -109,7 +117,6 @@ const Home: React.FC = () => {
               Jade Hamed • English Teacher
             </MainTitle>
             <Subtitle
-              textAlign="center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -117,7 +124,6 @@ const Home: React.FC = () => {
               🤍 Agenda aberta para manhãs & tardes
             </Subtitle>
             <Subtitle
-              textAlign="center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -125,7 +131,6 @@ const Home: React.FC = () => {
               ✨ Aulas on-line para todos os níveis
             </Subtitle>
             <Subtitle
-              textAlign="center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -133,7 +138,6 @@ const Home: React.FC = () => {
               ➿ Personalizado para seu objetivo
             </Subtitle>
             <Subtitle
-              textAlign="center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
